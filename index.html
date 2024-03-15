@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu Anh Không?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .question {
+            margin-top: 100px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .yes-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .no-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="question">
+        <h1>Em có yêu anh không?</h1>
+        <button class="btn yes-btn" onclick="redirectToPage()">Yes</button>
+        <button class="btn no-btn">No</button>
+        <div class="yes-container"></div>
+    </div>
+
+    <script>
+
+        // Lấy các button và div chứa nút Yes
+        const yesBtn = document.querySelector('.yes-btn');
+        const noBtn = document.querySelector('.no-btn');
+        const yesContainer = document.querySelector('.yes-container');
+
+        // Sự kiện khi click vào button No
+        noBtn.addEventListener('click', function () {
+            const newYesBtn = document.createElement('button');
+            newYesBtn.textContent = 'Yes';
+            newYesBtn.classList.add('btn', 'yes-btn');
+            newYesBtn.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+            newYesBtn.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+            newYesBtn.addEventListener('click', redirectToPage);
+            yesContainer.appendChild(newYesBtn);
+        });
+        function redirectToPage() {
+            window.location.href = '/page/hihi.html';
+        }
+    </script>
+</body>
+
+</html>
